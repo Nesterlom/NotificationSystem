@@ -2,6 +2,7 @@ package com.nesterlom.controller;
 
 import com.nesterlom.service.FileService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,10 +11,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/file")
+@RequestMapping("/api/file")
 public class FileController {
 
     private final FileService fileService;
+
+    @GetMapping("/test")
+    public String test(){
+        return "STRING RETURNED file";
+    }
 
     //All methods should work with current registered user(Principle)
     @PostMapping("/upload")

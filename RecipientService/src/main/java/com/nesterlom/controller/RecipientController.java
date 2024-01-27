@@ -11,10 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/recipient")
+@RequestMapping("/api/recipient")
 public class RecipientController {
 
     private final RecipientService recipientService;
+
+    @GetMapping("/test")
+    public String test(){
+        return "STRING RETURNED rep";
+    }
 
     @GetMapping("/sendAll")
     public String sendAllRecipientsInKafka(){
@@ -26,10 +31,9 @@ public class RecipientController {
 
     }
 
-
     @GetMapping
-    public void getAllRecipients(){
-
+    public String getAllRecipients(){
+        return "OK";
     }
 
     @PostMapping
